@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+        
+        .login-box{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:300px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        h2{
+            text-align:center;
+        }
+        
+        input{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+            border-radius:5px;
+            border:1px solid #ccc;
+        }
+        
+        button{
+            width:100%;
+            padding:10px;
+            border:none;
+            border-radius:5px;
+            background:#4facfe;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+        
+        button:hover{
+            background:#2d8cf0;
+        }
+        
+        #msg{
+            text-align:center;
+            margin-top:10px;
+        }
+        </style>
+</head>
+<body>
+    
+   
+
+        <form action="/consultaequipamento">
+            <div class="login-box">
+            <h2>Login</h2>
+            
+            <input type="text" id="usuario" placeholder="Usuário">
+            <input type="password" id="senha" placeholder="Senha">
+            
+            <button onclick="login()" type="submit">Entrar</button>
+            
+            <p id="msg"></p>
+            </div>
+       </form>
+        <script>
+        function login(){
+        
+            let user = document.getElementById("usuario").value;
+            let pass = document.getElementById("senha").value;
+        
+            if(user === "admin" && pass === "1234"){
+                document.getElementById("msg").style.color="green";
+                document.getElementById("msg").innerText="Login realizado!";
+                alert("Bem-vindo!");
+            }else{
+                document.getElementById("msg").style.color="red";
+                document.getElementById("msg").innerText="Usuário ou senha incorretos";
+            }
+        
+        }
+        </script>
+</body>
+</html>
