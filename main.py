@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template, request
 
 app = Flask(__name__)
 
@@ -29,5 +29,14 @@ def consultaequipamento():
 @app.route('/atualizaequipamento')
 def atualizaequipamento():
     return render_template('atualizar.html')
+
+@app.route('/telaprincipal', methods=['Post'])
+def telaPrincipal():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+    if(usuario == "123"  and senha == "ab"):
+        return render_template("consulta_equip.html")
+    else:
+        return  render_template('login.html')
 
 app.run(debug=True)

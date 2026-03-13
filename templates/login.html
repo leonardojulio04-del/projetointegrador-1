@@ -8,11 +8,16 @@
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            /*background: linear-gradient(135deg,#4facfe,#00f2fe);*/
             display:flex;
             justify-content:center;
             align-items:center;
+            /*height:100vh;*/
             height:100vh;
+            background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
         }
         
         .login-box{
@@ -60,7 +65,22 @@
     
    
 
-        <form action="/consultaequipamento">
+        <form action="/telaprincipal" method="post">
+            <div class="login-box">
+            <h2>Login</h2>
+            
+            <input type="text" id="usuario" name="usuario" placeholder="Usuário" required>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+            
+            <button onclick="login()" type="submit">Entrar</button>
+            
+            <p id="msg"></p>
+            </div>
+       </form>
+       
+     <!--
+
+      <form action="/consultaequipamento">
             <div class="login-box">
             <h2>Login</h2>
             
@@ -72,7 +92,7 @@
             <p id="msg"></p>
             </div>
        </form>
-        <script>
+       <script>
         function login(){
         
             let user = document.getElementById("usuario").value;
@@ -88,6 +108,7 @@
             }
         
         }
-        </script>
+        </script> 
+        -->
 </body>
 </html>
