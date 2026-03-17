@@ -35,7 +35,7 @@ def telaPrincipal():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
     if(usuario == "123"  and senha == "ab"):
-        return render_template("consulta_equip.html")
+        return render_template("tela_principal.html")
     else:
         return  render_template('login.html')
 

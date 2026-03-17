@@ -1,0 +1,314 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+height:100vh;
+background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.overlay{
+background:rgba(0,0,0,0.65);
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+color:white;
+}
+
+.logo{
+font-size:26px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+margin-left:25px;
+text-decoration:none;
+font-size:16px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00d9ff;
+}
+
+.hero{
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+margin-bottom:30px;
+}
+
+
+
+
+
+
+
+footer{
+text-align:center;
+color:white;
+padding:15px;
+background:rgba(0,0,0,0.6);
+}
+
+</style>
+
+
+
+</head>
+<body>
+    <div class="overlay">
+
+<header>
+<div class="logo">Tech Manager</div>
+
+<nav>
+<a href="#">Início</a>
+<a href="#">Cadastrar Computadores</a>
+<a href="#">Consulta</a>
+<a href="#">Suporte</a>
+<a href="#">Contato</a>
+</nav>
+</header>
+
+<section class="hero">
+
+<h1>Sistema de Gestão de Equipamentos de TI</h1>
+
+
+</section>
+
+<footer>
+© 2026 - Sistema de Gerenciamento de Computadores
+</footer>
+
+</div>
+
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Sistema de Gestão de Equipamentos de TI</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f6f9;
+}
+
+/* MENU LATERAL */
+
+.sidebar{
+position:fixed;
+width:230px;
+height:100%;
+background:#1f2937;
+color:white;
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+padding:15px;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#374151;
+}
+
+/* CONTEÚDO */
+
+.main{
+margin-left:230px;
+padding:20px;
+}
+
+.header{
+background:white;
+padding:15px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+margin-bottom:20px;
+}
+
+/* CARDS */
+
+.cards{
+display:flex;
+gap:20px;
+margin-bottom:20px;
+}
+
+.card{
+flex:1;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin:0;
+}
+
+.number{
+font-size:30px;
+color:#2563eb;
+}
+
+/* TABELA */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th, td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:left;
+}
+
+th{
+background:#2563eb;
+color:white;
+}
+
+tr:hover{
+background:#f1f1f1;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>TI Manager</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Computadores</a>
+<a href="#">Notebooks</a>
+<a href="#">Equipamentos</a>
+<a href="#">Usuários</a>
+<a href="#">Relatórios</a>
+</div>
+
+<div class="main">
+
+<div class="header">
+<h1>Sistema de Gestão de Equipamentos de TI</h1>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Computadores</h3>
+<div class="number">120</div>
+</div>
+
+<div class="card">
+<h3>Notebooks</h3>
+<div class="number">85</div>
+</div>
+
+<div class="card">
+<h3>Em Manutenção</h3>
+<div class="number">12</div>
+</div>
+
+<div class="card">
+<h3>Usuários</h3>
+<div class="number">95</div>
+</div>
+
+</div>
+
+<h2>Equipamentos Registrados</h2>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Equipamento</th>
+<th>Usuário</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>001</td>
+<td>Notebook Dell</td>
+<td>João</td>
+<td>Em uso</td>
+</tr>
+
+<tr>
+<td>002</td>
+<td>PC Lenovo</td>
+<td>Maria</td>
+<td>Em manutenção</td>
+</tr>
+
+<tr>
+<td>003</td>
+<td>Notebook HP</td>
+<td>Carlos</td>
+<td>Disponível</td>
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>
