@@ -3,6 +3,9 @@ from flask import Flask,render_template, request
 
 app = Flask(__name__)
 
+from models.usuario_model import *
+from models.cliente_model import *
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -39,5 +42,6 @@ def telaPrincipal():
         return render_template("tela_principal.html")
     else:
         return  render_template('login.html')
-
-app.run(debug=True)
+    
+if __name__ == "__main__":
+    app.run(debug=True)
