@@ -2,6 +2,7 @@
 from flask import Flask, request, redirect, url_for, render_template
 from models.usuario_model import Usuario
 from models.conexao import session
+
 app = Flask(__name__)
 
 from models.usuario_model import *
@@ -40,6 +41,45 @@ def create_user():
     session.commit()
 
     return redirect(url_for('user'))
+
+@app.route('/user/editar/<int:id>')
+def editar_user(id):
+    db = session
+
+    usuario = db.query(Usuario).filter_by(id=id).first()
+
+    db.close()
+
+    return render_template('usuario_editar.html', usuario=usuario)
+
+@app.route('/user/update/<int:id>', methods=['POST'])
+def update_user(id):
+    db = session
+
+    usuario = db.query(Usuario).filter_by(id=id).first()
+
+    usuario.nome = request.form['nome']
+    usuario.login = request.form['login']
+    usuario.senha = request.form['senha']
+    usuario.email = request.form['email']
+    usuario.telefone = request.form['telefone']
+
+    db.commit()
+    db.close()
+
+    return redirect('/user')
+
+@app.route('/user/delete/<int:id>')
+def delete_user(id):
+    db = session
+
+    usuario = db.query(Usuario).filter_by(id=id).first()
+
+    if usuario:
+        db.delete(usuario)
+        db.commit()
+
+    return redirect('/user')
 
 @app.route('/gerenciarequipamentos')
 def gerenciarequipamentos():
