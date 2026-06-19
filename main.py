@@ -1,6 +1,7 @@
 
-from flask import Flask,render_template, request
-
+from flask import Flask, request, redirect, url_for, render_template
+from models.usuario_model import Usuario
+from models.conexao import session
 app = Flask(__name__)
 
 from models.usuario_model import *
@@ -13,6 +14,32 @@ def index():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/user')
+def user():
+    usuarios = session.query(Usuario).all()
+    return render_template('usuarios.html', usuarios=usuarios)
+
+@app.route('/user/create', methods=['POST'])
+def create_user():
+    nome = request.form['nome']
+    login = request.form['login']
+    senha = request.form['senha']
+    email = request.form['email']
+    telefone = request.form['telefone']
+
+    novo_usuario = Usuario(
+        nome=nome,
+        login=login,
+        senha=senha,
+        email=email,
+        telefone=telefone
+    )
+
+    session.add(novo_usuario)
+    session.commit()
+
+    return redirect(url_for('user'))
 
 @app.route('/gerenciarequipamentos')
 def gerenciarequipamentos():

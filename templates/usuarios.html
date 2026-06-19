@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usuários</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+height:100vh;
+background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.overlay{
+background:rgba(0,0,0,0.75);
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+color:white;
+}
+
+.logo{
+font-size:26px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+margin-left:25px;
+text-decoration:none;
+font-size:16px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00d9ff;
+}
+
+/* CONTEÚDO */
+.content{
+flex:1;
+padding:30px 60px;
+display:flex;
+gap:30px;
+}
+
+.card{
+background:rgba(0,0,0,0.65);
+backdrop-filter: blur(8px);
+padding:20px;
+border-radius:10px;
+color:white;
+flex:1;
+}
+
+h2{
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:6px 0;
+border:none;
+border-radius:6px;
+outline:none;
+}
+
+button{
+background:#00d9ff;
+padding:12px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+margin-top:10px;
+}
+
+button:hover{
+background:#009fb8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th, td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,0.2);
+color:white;
+}
+
+th{
+background:rgba(255,255,255,0.1);
+}
+
+.actions button{
+margin:0 3px;
+padding:6px 10px;
+font-size:12px;
+}
+
+.edit{ background:#facc15; }
+.delete{ background:#ef4444; color:white; }
+
+footer{
+text-align:center;
+color:white;
+padding:15px;
+background:rgba(0,0,0,0.6);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<header>
+<div class="logo">Tech Manager</div>
+
+<nav>
+<a href="/index">Início</a>
+<a href="/usuarios">Usuários</a>
+<a href="/login">Sair</a>
+</nav>
+</header>
+
+<section class="content">
+
+<!-- FORMULÁRIO -->
+<div class="card">
+<form action="/user/create" method="POST">
+
+<input type="text" name="nome" placeholder="Nome">
+<input type="text" name="login" placeholder="Login">
+<input type="password" name="senha" placeholder="Senha">
+<input type="email" name="email" placeholder="Email">
+<input type="text" name="telefone" placeholder="Telefone">
+
+<button type="submit">Criar Usuário</button>
+
+</form>
+</div>
+
+<!-- LISTAGEM -->
+<div class="card">
+<h2>Lista de Usuários</h2>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Login</th>
+<th>Senha</th>
+<th>Email</th>
+<th>Telefone</th>
+<th>Ações</th>
+</tr>
+</thead>
+
+<tbody>
+{% for u in usuarios %}
+<tr>
+    <td>{{ u.id }}</td>
+    <td>{{ u.nome }}</td>
+    <td>{{ u.login }}</td>
+    <td>{{ u.senha }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.telefone }}</td>
+    <td>
+        <button class="edit">Editar</button>
+        <button class="delete">Excluir</button>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 - Sistema de Gerenciamento de Computadores
+</footer>
+
+</div>
+
+</body>
+</html>
